@@ -1,0 +1,9 @@
+    FROM ubuntu:latest
+    MAINTAINER vlad
+    RUN apt-get update -qq
+    RUN apt-get install -y -qq software-properties-common python-software-properties curl git debconf-utils
+    RUN add-apt-repository ppa:webupd8team/java
+    RUN apt-get update -qq
+    RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+    RUN apt-get install -y -qq oracle-java8-installer
+

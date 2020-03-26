@@ -1,0 +1,14 @@
+#FROM ubuntu:latest
+FROM docker:es
+MAINTAINER vlad
+
+ENV ES_SKIP_SET_KERNEL_PARAMETERS true
+ENV XDG_RUNTIME_DIR /run/user/0
+
+#RUN apt-get update -qq
+
+# Kibana
+RUN curl -L -o /tmp/kibana-5.3.1-amd64.deb https://artifacts.elastic.co/downloads/kibana/kibana-5.3.1-amd64.deb
+RUN dpkg -i /tmp/kibana-5.3.1-amd64.deb
+
+EXPOSE 5601

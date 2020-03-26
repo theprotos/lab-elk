@@ -1,0 +1,125 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    ###################[ Main ]###################
+    config.vm.define "server" do |server|
+        server.vm.box = "bento/centos-7.3"
+        server.vm.hostname = 'server'
+        #server.vm.network "private_network", type: "dhcp"
+        server.vm.network "private_network", ip: "192.168.100.10"
+        # Jenkins mapping
+        server.vm.network "forwarded_port", guest: 9200, host: 9201
+        server.vm.network "forwarded_port", guest: 9300, host: 9301
+        server.vm.synced_folder "public", "/vagrant_data"
+        # Run commands
+        server.vm.provision "shell", inline: <<-SHELL
+            cd /vagrant_data/scripts
+            ./startup-common.sh
+            ./startup-server.sh
+        SHELL
+        # VM hardware parameters
+        server.vm.provider "virtualbox" do |v|
+            #v.memory = 1200
+            #v.cpus = 1
+            v.name = "vagrant-elk-master"
+        end
+    end
+
+    ###################[ Node1 ]###################
+    config.vm.define "node1" do |node1|
+        node1.vm.box = "bento/centos-7.3"
+        node1.vm.hostname = 'node1'
+        #node1.vm.network "private_network", type: "dhcp"
+        node1.vm.network "private_network", ip: "192.168.100.11"
+        # Tomcat mapping
+        node1.vm.network "forwarded_port", guest: 9200, host: 9211
+        node1.vm.network "forwarded_port", guest: 9300, host: 9311
+        node1.vm.synced_folder "public", "/vagrant_data"
+        # Run commands
+        node1.vm.provision "shell", inline: <<-SHELL
+            cd /vagrant_data/scripts
+            ./startup-common.sh
+            ./startup-node1.sh
+        SHELL
+        # VM hardaware paramentes
+        node1.vm.provider "virtualbox" do |v|
+            #v.memory = 1200
+            #v.cpus = 1
+            v.name = "vagrant-elk-data1"
+        end
+    end
+
+    ###################[ Node2 ]###################
+    config.vm.define "node2" do |node2|
+        node2.vm.box = "bento/centos-7.3"
+        node2.vm.hostname = 'node2'
+        node2.vm.network "private_network", ip: "192.168.100.12"
+        #node2.vm.network "private_network", type: "dhcp"
+        # Tomcat mapping
+        node2.vm.network "forwarded_port", guest: 9200, host: 9221
+        node2.vm.network "forwarded_port", guest: 9300, host: 9321
+        node2.vm.synced_folder "public", "/vagrant_data"
+        # Run commands
+        node2.vm.provision "shell", inline: <<-SHELL
+            cd /vagrant_data/scripts
+            ./startup-common.sh
+            ./startup-node2.sh
+        SHELL
+        # VM hardaware paramentes
+        node2.vm.provider "virtualbox" do |v|
+            #v.memory = 1200
+            #v.cpus = 1
+            v.name = "vagrant-elk-data2"
+        end
+    end
+    ###################[ Node3 ]###################
+        config.vm.define "node3" do |node3|
+            node3.vm.box = "bento/centos-7.3"
+            node3.vm.hostname = 'node3'
+            node3.vm.network "private_network", ip: "192.168.100.13"
+            #node3.vm.network "private_network", type: "dhcp"
+            # Tomcat mapping
+            node3.vm.network "forwarded_port", guest: 9200, host: 9231
+            node3.vm.network "forwarded_port", guest: 9300, host: 9331
+            node3.vm.synced_folder "public", "/vagrant_data"
+            # Run commands
+            node3.vm.provision "shell", inline: <<-SHELL
+                cd /vagrant_data/scripts
+                ./startup-common.sh
+                ./startup-node3.sh
+            SHELL
+            # VM hardaware paramentes
+            node3.vm.provider "virtualbox" do |v|
+                #v.memory = 1200
+                #v.cpus = 1
+                v.name = "vagrant-elk-data3"
+            end
+        end
+
+    ###################[ Node4 ]###################
+        config.vm.define "node4" do |node4|
+            node4.vm.box = "bento/centos-7.3"
+            node4.vm.hostname = 'node4'
+            node4.vm.network "private_network", ip: "192.168.100.14"
+            #node4.vm.network "private_network", type: "dhcp"
+            # Tomcat mapping
+            node4.vm.network "forwarded_port", guest: 9200, host: 9241
+            node4.vm.network "forwarded_port", guest: 9300, host: 9341
+            node4.vm.synced_folder "public", "/vagrant_data"
+            # Run commands
+            node4.vm.provision "shell", inline: <<-SHELL
+                cd /vagrant_data/scripts
+                ./startup-common.sh
+                ./startup-node4.sh
+            SHELL
+            # VM hardaware paramentes
+            node4.vm.provider "virtualbox" do |v|
+                #v.memory = 1200
+                #v.cpus = 1
+                v.name = "vagrant-elk-data4"
+            end
+        end
+end

@@ -1,0 +1,159 @@
+{
+    "timestamp": 1488474859958,
+    "cluster_name": "mycluster",
+    "status": "green",
+    "indices": {
+    "count": 0,
+        "shards": {},
+    "docs": {
+        "count": 0,
+            "deleted": 0
+      //
+      //
+    },
+    "nodes": {
+        "count": {
+            "total": 3,
+                "master_only": 1,
+                "data_only": 2,
+                "master_data": 0,
+                "client": 0
+        },
+        "versions": [
+            "2.2.2"
+        ],
+        //
+        //
+        "fs": {
+            "total": "115.3gb",
+                "total_in_bytes": 123843440640,
+                "free": "111.8gb",
+                "free_in_bytes": 120085946368,
+                "available": "111.8gb",
+                "available_in_bytes": 120085946368
+        },
+        "plugins": []
+    }
+}
+  //
+  //
+  //
+  //
+
+    {
+        "cluster_name": "mycluster",
+        "nodes": {
+        "sFQgqmKYTB-OymZHm4JsrA": {
+            "timestamp": 1488474847137,
+                "name": "master",
+                "transport_address": "172.28.128.3:9300",
+                "host": "172.28.128.3",
+                "ip": [
+                "172.28.128.3:9300",
+                "NONE"
+            ],
+                "attributes": {
+                "data": "false",
+                    "master": "true"
+            },
+            "fs": {
+                "timestamp": 1488474847137,
+                    "total": {
+                    "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028336128,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028336128
+                },
+                "data": [
+                    {
+                        "path": "/var/lib/elasticsearch/mycluster/nodes/0",
+                        "mount": "/ (rootfs)",
+                        "type": "rootfs",
+                        "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028336128,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028336128
+                    }
+                ]
+            }
+        },
+        "AGYhFK93REKAvWE0XT6j_g": {
+            "timestamp": 1488474847047,
+                "name": "data1",
+                "transport_address": "172.28.128.4:9300",
+                "host": "172.28.128.4",
+                "ip": [
+                "172.28.128.4:9300",
+                "NONE"
+            ],
+                "attributes": {
+                "master": "false"
+            },
+            "fs": {
+                "timestamp": 1488474847047,
+                    "total": {
+                    "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028844032,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028844032
+                },
+                "data": [
+                    {
+                        "path": "/var/lib/elasticsearch/mycluster/nodes/0",
+                        "mount": "/ (rootfs)",
+                        "type": "rootfs",
+                        "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028844032,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028844032
+                    }
+                ]
+            }
+        },
+        "g_4x0n8gT-Wz4jV0pmVdUg": {
+            "timestamp": 1488474846967,
+                "name": "data2",
+                "transport_address": "172.28.128.5:9300",
+                "host": "172.28.128.5",
+                "ip": [
+                "172.28.128.5:9300",
+                "NONE"
+            ],
+                "attributes": {
+                "master": "false"
+            },
+            "fs": {
+                "timestamp": 1488474846968,
+                    "total": {
+                    "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028766208,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028766208
+                },
+                "data": [
+                    {
+                        "path": "/var/lib/elasticsearch/mycluster/nodes/0",
+                        "mount": "/ (rootfs)",
+                        "type": "rootfs",
+                        "total": "38.4gb",
+                        "total_in_bytes": 41281146880,
+                        "free": "37.2gb",
+                        "free_in_bytes": 40028766208,
+                        "available": "37.2gb",
+                        "available_in_bytes": 40028766208
+                    }
+                ]
+            }
+        }
+    }
+    }

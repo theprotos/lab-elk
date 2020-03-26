@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  openjdk:
+    build: .
+    #image: ubuntu
+    command: top
+    volumes:
+      - .:/apps
+    working_dir: /apps
+    ports:
+      - 8000:80
+    environment:
+      somevalute: test
+
+  elastic:
+    build: es

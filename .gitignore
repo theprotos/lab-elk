@@ -1,0 +1,7 @@
+.vagrant
+.idea
+*.iml
+*.rpm
+__pycache__
+
+
